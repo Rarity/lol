@@ -57,13 +57,13 @@ class App extends Component {
   }
 
   render() {
-    let { userData } = this.state
+    let { userData, loading } = this.state
       return (
       <div className="App">
         <Header as="h1">Сундуки</Header>
         <Input placeholder='Search...' />
-        <Button primary onClick={this.clickHandler}>Check</Button>
-        <UserCard userData={userData}/>
+        <Button primary onClick={this.clickHandler} disabled={loading}>Check</Button>
+        <UserCard userData={userData} loading={loading}/>
       </div>
     );
   }
