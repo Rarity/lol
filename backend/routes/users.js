@@ -14,4 +14,6 @@ router.get('/', function(req, res, next) {
   })
 });
 
+
+//profileIcon http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png
 module.exports = router;

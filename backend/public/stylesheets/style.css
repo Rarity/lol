@@ -8,8 +8,8 @@ a {
   color: #00B7FF;
 }
 
-img {
-  width: 99.9vw;
-  height: 99.7vh;
-
+.cat {
+  height: 100vh;
+  background: url('../images/pisos-cat.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
