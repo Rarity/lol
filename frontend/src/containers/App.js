@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Input, Button } from 'semantic-ui-react'
+import { Container, Grid, Header, Input, Button } from 'semantic-ui-react'
 import UserCard from '../components/UserCard/UserCard'
 
 import 'semantic-ui-css/semantic.min.css';
@@ -7,7 +7,9 @@ import 'semantic-ui-css/semantic.min.css';
 class App extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {userData: {
+    this.state = {
+      loading: false,
+      userData: {
       "profileIconId": 0,
       "name": "Noname",
       "summonerLevel": 0,
@@ -15,6 +17,7 @@ class App extends Component {
       "id": 0,
       "revisionDate": 0
       }
+
     }
   }
 
@@ -39,6 +42,18 @@ class App extends Component {
   }
 
 
+  getMasteryData = () => {
+    var promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(data)
+      }, 1000)
+    });
+    return promise
+      .then(
+        result => data
+      )
+  }
+
   async getUserData() {
     console.log('start request')
     this.setState({loading: true})
@@ -60,10 +75,23 @@ class App extends Component {
     let { userData, loading } = this.state
       return (
       <div className="App">
-        <Header as="h1">Сундуки</Header>
-        <Input placeholder='Search...' />
-        <Button primary onClick={this.clickHandler} disabled={loading}>Check</Button>
-        <UserCard userData={userData} loading={loading}/>
+          <Grid container style ={{padding: '5em 0em'}} columns={3}>
+            <Grid.Row>
+              <Grid.Column floated="left" width={2}>
+                <Header as="h1">Сундуки</Header>
+              </Grid.Column>
+              <Grid.Column floated="left" width={5}>
+                <Input placeholder='Search...' />
+                <Button primary onClick={this.clickHandler} disabled={loading}>Check</Button>
+              </Grid.Column>
+              <Grid.Column floated="right" width={5}>
+                <UserCard userData={userData} loading={loading}/>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <div> xDD </div>
+            </Grid.Row>
+          </Grid>
       </div>
     );
   }
