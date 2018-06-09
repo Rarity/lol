@@ -1,7 +1,6 @@
 import express from 'express';
 import { Router } from 'express';
-
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
 const router = Router()
 dotenv.config()
@@ -9,7 +8,8 @@ dotenv.config()
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title:  process.env.API_KEY });
+  console.log(process.env.API_KEY)
+  res.render('index', { title:  process.env.API_KEY});
 });
 
 module.exports = router;

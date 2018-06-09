@@ -3,16 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www --exec babel-node",
+    "start": "nodemon ./src/bin/www --exec babel-node",
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^6.0.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
