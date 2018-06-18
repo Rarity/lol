@@ -1,8 +1,7 @@
 import express from 'express';
-import { Router } from 'express';
-import dotenv from 'dotenv';
+let router = express.Router();
+import dotenv from "dotenv"
 
-const router = Router()
 dotenv.config()
 
 
@@ -12,4 +11,4 @@ router.get('/', (req, res, next) => {
   res.render('index', { title:  process.env.API_KEY});
 });
 
-module.exports = router;
+export default router;

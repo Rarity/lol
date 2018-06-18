@@ -1,10 +1,10 @@
-#!/usr/bin/env node
+//#!/usr/bin/env node
 
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
+import app from './app';
 var debug = require('debug')('lolchest:server');
 var http = require('http');
 
@@ -28,6 +28,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+server.on('listening', linst)
 
 /**
  * Normalize a port into a number, string, or false.
@@ -85,6 +86,15 @@ function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
-    : 'port ' + addr.port;
+    : 'port ' + addr.port; 
   debug('Listening on ' + bind);
+}
+
+
+function linst() {
+  var addr = server.address();
+  if (__DEV__) { // webpack flags!
+    console.log('> in development')
+  }
+  console.log(`Listerning on port ${addr.port}`)   
 }
